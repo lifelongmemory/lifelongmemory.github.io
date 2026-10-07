@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = "Total Recall — AI for Lifelong Memory", description = "A workshop convening experts in agentic memory, long-context models, personalization, and the cognitive neuroscience of memory." } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" />
+  </head>
+  <body class="bg-surface-page text-text-body font-dm-sans antialiased">
+    <slot />
+  </body>
+</html>
