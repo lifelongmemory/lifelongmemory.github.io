@@ -5,36 +5,66 @@ const workshop = {
   title: "Total Recall",
   subtitle: "AI for Lifelong Memory",
   tagline:
-    "This workshop synthesizes diverse frameworks to advance algorithms in long-term AI memory.",
+    "This workshop focuses on lifelong, evolving memory at the scale of terabytes to petabytes of artifacts per coherent context, corresponding to decades of human digital activity.",
 };
 
-const topics = [
-  { name: "Agentic memory" },
-  { name: "Long-context models" },
-  { name: "Personalization" },
-  { name: "Cognitive neuroscience of human memory" },
-  { name: "New memory architectures" },
-  { name: "Lifelong recall" },
+const researchQuestions = [
+  "Which scaling dimensions most affect lifelong-memory performance — text or multimodal data volume, time span, time resolution of experience, diversity of user preferences and experiences, or more?",
+  "Which representations can retain a lifetime of memories while supporting efficient updates and recall?",
+  "How can we construct realistic, personalized, lifelong memory datasets?",
+  "Which tasks and metrics should a lifelong memory benchmark prioritize: retaining details; consolidation and abstraction; abstention; grounding; associative and multi-hop recall; cost and latency of encoding, updating, and recall; or interpretability and editability?",
+  "Which requirements do memory for agents and memory for human assistance share, and which differ?",
+  "How should we measure memory assistance for people, including improved recollection, reduced effort, surfacing forgotten memories, and more?",
 ];
 
 const speakers = [
-  { name: "Jeff Clune", affiliation: "UBC · Canada CIFAR AI Chair · Recursive", image: "/speaker-jeff-clune.jpg", linkedin: "https://www.cs.ubc.ca/people/jeff-clune" },
-  { name: "Chelsea Finn", affiliation: "Stanford · Physical Intelligence", image: "/speaker-chelsea-finn.jpg", linkedin: "https://ai.stanford.edu/~cbfinn/" },
-  { name: "Gabriel Kreiman", affiliation: "Harvard", image: "/gabriel-default.jpg", linkedin: "https://kreimanlab.com" },
-  { name: "Joel Leibo", affiliation: "DeepMind", image: "/speaker-joel-leibo.jpg", linkedin: "https://www.jzleibo.com/" },
-  { name: "Emily B. Fox", affiliation: "Stanford", image: "/speaker-emily-fox.jpg", linkedin: "https://emilybfox.su.domains/" },
-  { name: "Haim Sompolinsky", affiliation: "Harvard", image: "/speaker-haim-sompolinsky.jpg", linkedin: "https://www.mcb.harvard.edu/directory/haim-sompolinsky/" },
-  { name: "Aude Oliva", affiliation: "IBM · MIT", image: "/speaker-aude-oliva.png", linkedin: "http://olivalab.mit.edu/audeoliva.html" },
-  { name: "Muireann Irish", affiliation: "University of Sydney", image: "/speaker-muireann-irish.jpg", linkedin: "https://profiles.sydney.edu.au/muireann.irish" },
-  { name: "Charles Fan", affiliation: "MemVerge", image: "/speaker-charles-fan.jpg", linkedin: "https://www.linkedin.com/in/charlesfan1/" },
-  { name: "Ali Behrouz", affiliation: "Google Research · Cornell CS", image: "/speaker-ali-behrouz.jpg", linkedin: "https://abehrouz.github.io/" },
-  { name: "Pattie Maes", affiliation: "MIT", image: "/speaker-pattie-maes.jpg", linkedin: "https://www.media.mit.edu/people/pattie/overview/" },
-  { name: "Ueli Rutishauser", affiliation: "Caltech", image: "/speaker-ueli-rutishauser.jpg", linkedin: "https://neuroscience.caltech.edu/people/ueli-rutishauser" },
+  { name: "Jeff Clune", affiliation: "UBC · Recursive AI", image: "/speaker-jeff-clune.jpg", link: "https://www.cs.ubc.ca/people/jeff-clune" },
+  { name: "Charles Fan", affiliation: "MemVerge", image: "/speaker-charles-fan.jpg", link: "https://www.linkedin.com/in/charlesfan1/" },
+  { name: "Emily B. Fox", affiliation: "Stanford · insitro", image: "/speaker-emily-fox.jpg", link: "https://emilybfox.su.domains/" },
+  { name: "Weiwen Liu", affiliation: "Shanghai Jiao Tong University", image: "/speaker-placeholder.svg", link: "" },
+  { name: "Spandan Madan", affiliation: "Engramme", image: "/spandan-default.jpg", link: "https://www.linkedin.com/in/spandan-madan-337b6820b/" },
+  { name: "Tsendsuren Munkhdalai", affiliation: "Google DeepMind", image: "/speaker-placeholder.svg", link: "" },
+  { name: "Diyi Yang", affiliation: "Stanford", image: "/speaker-placeholder.svg", link: "" },
+  { name: "Jie Zheng", affiliation: "UC Davis", image: "/speaker-placeholder.svg", link: "" },
+];
+
+const schedule = [
+  { time: "8:00 – 8:10", duration: "10 min", session: "Opening remarks and framing" },
+  { time: "8:10 – 9:50", duration: "100 min", session: "Morning invited session — 4 × (20-minute talk + 5-minute Q&A)" },
+  { time: "9:50 – 10:20", duration: "30 min", session: "Coffee break and informal discussion" },
+  { time: "10:20 – 10:35", duration: "15 min", session: "Contributed spotlight — 12-minute talk + 3-minute Q&A" },
+  { time: "10:35 – 11:35", duration: "60 min", session: "Contributed talks — 5 × (10-minute presentation + 2-minute Q&A)" },
+  { time: "11:35 – 12:35", duration: "60 min", session: "Debate: general-purpose AI agents versus specialized memory algorithms" },
+  { time: "12:35 – 1:50", duration: "75 min", session: "Lunch and informal exchange" },
+  { time: "1:50 – 3:30", duration: "100 min", session: "Afternoon invited session — 4 × (20-minute talk + 5-minute Q&A)" },
+  { time: "3:30 – 4:00", duration: "30 min", session: "Coffee break and informal discussion" },
+  { time: "4:00 – 5:30", duration: "90 min", session: "Poster session" },
+  { time: "5:30 – 6:00", duration: "30 min", session: "Moderated panel to synthesize workshop topics" },
+];
+
+const relatedWorkshops = [
+  "New Frontiers in Associative Memories (NFAM; NeurIPS 2023, ICLR 2025, ICLR 2026)",
+  "Long-Context Foundation Models (LCFM; ICML 2025, NeurIPS 2026)",
+  "Memory for LLM-Based Agentic Systems (MemAgents; ICLR 2026)",
+  "Lifelong Agents (ICLR 2026; COLM 2026)",
+  "Context Beyond the Window (COLM 2026)",
+  "Personalized, Aligned, Long-term Memory for AI systems (PALM; NeurIPS 2026)",
+];
+
+const references = [
+  "Xiao, W., Deshpande, S., Mahesh, G., Madan, S., & Kreiman, G. (2026). Memory is Not Search: Towards Proactive, Lifelong Memory in AI. NeurIPS 2026, Position Paper Track (accepted).",
+  "Tran, A., et al. (2025). The State-of-the-Art in Lifelog Retrieval: A Review of Progress at the ACM Lifelog Search Challenge Workshop 2022–2024. IEEE Access 13: 216340–216363.",
+  "Gemmell, J., Bell, G., & Lueder, R. (2006). MyLifeBits: a personal database for everything. Communications of the ACM 49(1): 88–95.",
+  "Hendrycks, D., et al. (2025). A definition of AGI. arXiv:2510.18212.",
+  "Maharana, A., et al. (2024). Evaluating very long-term conversational memory of LLM agents. ACL 2024.",
+  "Wu, D., et al. (2024). LongMemEval: Benchmarking chat assistants on long-term interactive memory. arXiv:2410.10813.",
+  "Tavakoli, M., et al. (2026). Beyond a million tokens: Benchmarking and enhancing long-term memory in LLMs. ICLR 2026.",
 ];
 
 const organizers = [
-  { name: "Spandan Madan", image: "/spandan-default.jpg", link: "https://www.linkedin.com/in/spandan-madan-337b6820b/" },
-  { name: "Will Xiao", image: "/will-default.jpg", link: "https://www.linkedin.com/in/will-xiao-38915656/" },
+  { name: "Gabriel Kreiman", affiliation: "Engramme · Harvard", email: "gabriel@engramme.com", image: "/gabriel-default.jpg", link: "https://kreimanlab.com" },
+  { name: "Will Xiao", affiliation: "Engramme", email: "will@engramme.com", image: "/will-default.jpg", link: "https://www.linkedin.com/in/will-xiao-38915656/" },
+  { name: "Mengmi Zhang", affiliation: "Nanyang Technological University", email: "mengmi.zhang@ntu.edu.sg", image: "/speaker-placeholder.svg", link: "" },
 ];
 ---
 
@@ -53,12 +83,12 @@ const organizers = [
         <p class="font-dm-sans text-text-heading text-body-md xl:text-body-lg tracking-[-0.07px] xl:tracking-normal max-w-[500px]">
           {workshop.tagline}
         </p>
-        <a
-          href="#organizers"
-          class="border border-[#423d3b] px-6 py-2 md:py-3 rounded-xl text-[#2c2827] text-body-md md:text-xl font-dm-sans font-medium md:font-semibold hover:bg-black/5 transition-all duration-300"
+        <span
+          class="inline-flex items-center px-6 py-2 md:py-3 rounded-xl bg-black/5 text-[#787270] text-body-md md:text-xl font-dm-sans font-medium md:font-semibold border border-[#d2d0d0] cursor-not-allowed select-none"
+          aria-disabled="true"
         >
           Registration opens soon
-        </a>
+        </span>
       </div>
       <div class="w-full md:flex-1 md:max-w-[707px] aspect-[707/552] rounded-[16px] overflow-hidden flex-shrink-0">
         <img src="/Images/workshop-memory.webp" alt="" class="w-full h-full object-cover select-none" draggable="false" />
@@ -71,10 +101,14 @@ const organizers = [
       <div class="w-max mx-auto flex items-center gap-[28px] md:gap-[36px] px-[36px] md:px-[56px] lg:px-[112px] py-[16px] whitespace-nowrap text-body-md font-dm-sans tracking-[-0.08px]">
         <a href="#about" class="text-text-body hover:text-text-heading transition-colors">Overview</a>
         <a href="#why-now" class="text-text-body hover:text-text-heading transition-colors">Why now</a>
-        <a href="#topics" class="text-text-body hover:text-text-heading transition-colors">Topics</a>
+        <a href="#topics" class="text-text-body hover:text-text-heading transition-colors">Research questions</a>
         <a href="#speakers" class="text-text-body hover:text-text-heading transition-colors">Speakers</a>
         <a href="#agenda" class="text-text-body hover:text-text-heading transition-colors">Agenda</a>
+        <a href="#debate" class="text-text-body hover:text-text-heading transition-colors">Debate</a>
+        <a href="#papers" class="text-text-body hover:text-text-heading transition-colors">Papers</a>
         <a href="#organizers" class="text-text-body hover:text-text-heading transition-colors">Organizers</a>
+        <a href="#related" class="text-text-body hover:text-text-heading transition-colors">Related</a>
+        <a href="#references" class="text-text-body hover:text-text-heading transition-colors">References</a>
       </div>
     </div>
   </nav>
@@ -83,9 +117,9 @@ const organizers = [
     <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
       <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Overview</h2>
       <div class="flex flex-col gap-[20px] flex-1 max-w-[800px] text-body-md font-dm-sans text-text-body leading-[26px]">
-        <p>Memory is essential to learning and intelligence. Long-term test-time memory is emerging as a bottleneck in current AI, limiting performance in tasks that require models to marshal large amounts of new, often action-dependent and dynamically evolving, information.</p>
-        <p>The next frontier of AI memory requires scaling to memory that is lifelong, fast, and accurate. Lifelong AI memory will open up qualitatively new abilities, from personalization on decades of user information to contextualizing on weeks to months of agentic trajectories. AI with lifelong memory also promises to alleviate devastating conditions of memory loss and even augment human cognition.</p>
-        <p>To galvanize work on the frontier of AI memory, this workshop convenes experts from diverse related fields including agentic memory, long-context models, neural memory, personalization, and the cognitive neuroscience of memory. The aim is to foster interdisciplinary dialog toward a unified framework and new datasets and benchmarks appropriate for advancing AI memory.</p>
+        <p>This workshop focuses on lifelong, evolving memory at the scale of terabytes to petabytes of artifacts per coherent context, corresponding to decades of human digital activity. How to represent evolving memory at the human lifelong scale is a vital gap precluding current AI from achieving key aspects of human-level intelligence. AI that can handle a lifetime of memories also promises to alleviate devastating conditions of memory loss and even augment human memory.</p>
+        <p>Memory at the human lifelong scale extends well beyond today's chatbot conversations, agent traces, and agent memory benchmarks, and poses particular challenges: multiscale consolidation of experience, preserving details through repeated consolidations, retaining rarely used evidence, distinguishing similar events, handling evolving facts and preferences, and cost-efficient encoding, updates, and recall. AI that augments human memory should improve assisted recollection, reduce effort in organizing documents and files, and surface forgotten memories that inform present decisions.</p>
+        <p>By convening experts in agentic memory, context management, long-context models, continual and lifelong learning, personalized AI, human–computer interaction, and the cognitive neuroscience of memory, we aim to shape a coherent framework and design adequate benchmarks for advancing lifelong AI memory.</p>
       </div>
     </div>
   </section>
@@ -94,22 +128,23 @@ const organizers = [
     <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
       <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Why now</h2>
       <div class="flex flex-col gap-[20px] flex-1 max-w-[800px] text-body-md font-dm-sans text-text-body leading-[26px]">
-        <p>Long-term memory is a key open challenge in AI and a central goal in the quest for AGI. Here we define lifelong memory as the scale beyond 100M tokens, informed by a conservative estimate based on decades of a person's documents or days to weeks of agentic trajectories.</p>
-        <p>There is a disconnect among fields working on long-context models, RAG, tool-based agentic memory, test-time training, LLM finetuning, and the cognitive neuroscience of memory. Further, the community lacks adequate benchmarks for evaluating lifelong memory for AI.</p>
-        <p>This workshop will facilitate the discussion of unifying principles, comparison of models and benchmarks, and systematic evaluation of the merits and pitfalls of current approaches — bringing forward a much-needed transformation to solve the problem of lifelong memory in AI.</p>
+        <p>Memory at the human lifelong scale is gaining relevance with burgeoning interest in AI that can do economically valuable human-level work and in personal AI assistants. Long-term memory remains a key challenge in the quest for AGI.</p>
+        <p>Approaches to represent and use memory remain fragmentary: retrieval-augmented generation, agent-managed tools and notes, long-context, recurrent, and state-space architectures, context compression and latent context, post-deployment and test-time training and fine-tuning, hypernetworks, and beyond.</p>
+        <p>There are few datasets and benchmarks for human-like memory at the lifelong scale, which must test deep, realistic, grounded experience and evolving environments and needs across years, well beyond small contexts and synthetic datasets.</p>
       </div>
     </div>
   </section>
 
   <section id="topics" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-surface-page scroll-mt-[72px]">
-    <div class="w-full max-w-[1272px] mx-auto">
-      <h2 class="text-h3 font-dm-sans text-text-heading mb-[36px]">Topics</h2>
-      <div class="flex flex-wrap justify-center gap-[12px] md:gap-[16px]">
-        {topics.map((topic) => (
-          <span class="text-body-lg font-dm-sans font-medium text-text-heading px-[24px] py-[14px] rounded-full bg-bg-secondary tracking-[-0.08px]">
-            {topic.name}
-          </span>
-        ))}
+    <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
+      <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Research questions</h2>
+      <div class="flex flex-col gap-[20px] flex-1 max-w-[800px] text-body-md font-dm-sans text-text-body leading-[26px]">
+        <ul class="flex flex-col gap-[16px] list-disc pl-[20px]">
+          {researchQuestions.map((q) => (
+            <li>{q}</li>
+          ))}
+        </ul>
+        <p class="mt-[12px]">We will publish a public synthesis of the debate and closing panel as a research agenda recording points of agreement and disagreement; a draft benchmark specification covering data units, tasks, metrics, and costs; and open questions. Contributions will be invited from panelists, debaters, and authors of relevant contributed work.</p>
       </div>
     </div>
   </section>
@@ -117,22 +152,32 @@ const organizers = [
   <section id="speakers" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-bg-secondary scroll-mt-[72px]">
     <div class="w-full max-w-[1272px] mx-auto">
       <div class="flex flex-col gap-[12px] mb-[36px]">
-        <h2 class="text-h3 font-dm-sans text-text-heading">Speakers</h2>
-        <p class="text-body-md font-dm-sans text-text-body-light max-w-[700px]">More speakers to be announced.</p>
+        <h2 class="text-h3 font-dm-sans text-text-heading">Invited speakers</h2>
+        <p class="text-body-md font-dm-sans text-text-body-light max-w-[700px]">All eight speakers confirmed.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[24px] md:gap-[32px]">
         {speakers.map((speaker) => (
-          <a href={speaker.linkedin} target="_blank" rel="noopener noreferrer" class="flex flex-col gap-[12px] group">
-            <div class="w-full aspect-square rounded-[12px] bg-bg-secondary overflow-hidden flex items-center justify-center">
-              <img src={speaker.image} alt={speaker.name} class="w-full h-full object-cover" />
-            </div>
-            <div class="flex flex-col gap-[4px]">
-              <h3 class="text-h6 font-dm-sans font-medium text-text-heading">{speaker.name}</h3>
-              {speaker.affiliation && (
+          speaker.link ? (
+            <a href={speaker.link} target="_blank" rel="noopener noreferrer" class="flex flex-col gap-[12px] group">
+              <div class="w-full aspect-square rounded-[12px] bg-bg-secondary overflow-hidden flex items-center justify-center">
+                <img src={speaker.image} alt={speaker.name} class="w-full h-full object-cover" />
+              </div>
+              <div class="flex flex-col gap-[4px]">
+                <h3 class="text-h6 font-dm-sans font-medium text-text-heading">{speaker.name}</h3>
                 <p class="text-body-md font-dm-sans text-text-body-light tracking-[-0.08px]">{speaker.affiliation}</p>
-              )}
+              </div>
+            </a>
+          ) : (
+            <div class="flex flex-col gap-[12px]">
+              <div class="w-full aspect-square rounded-[12px] bg-bg-secondary overflow-hidden flex items-center justify-center">
+                <img src={speaker.image} alt={speaker.name} class="w-full h-full object-cover" />
+              </div>
+              <div class="flex flex-col gap-[4px]">
+                <h3 class="text-h6 font-dm-sans font-medium text-text-heading">{speaker.name}</h3>
+                <p class="text-body-md font-dm-sans text-text-body-light tracking-[-0.08px]">{speaker.affiliation}</p>
+              </div>
             </div>
-          </a>
+          )
         ))}
       </div>
     </div>
@@ -140,18 +185,55 @@ const organizers = [
 
   <section id="agenda" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-surface-page scroll-mt-[72px]">
     <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
-      <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Agenda</h2>
-      <div class="flex flex-col gap-[16px] flex-1 max-w-[800px]">
-        <div class="flex flex-col gap-[12px] py-[20px] border-b border-[#d2d0d0] first:border-t">
-          <p class="text-body-md font-dm-sans text-text-heading tracking-[-0.08px]"><strong>Invited talks</strong> — 20+5 minutes each</p>
+      <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Schedule</h2>
+      <div class="flex flex-col flex-1 max-w-[800px]">
+        {schedule.map((slot) => (
+          <div class="flex flex-col md:flex-row gap-[8px] md:gap-[32px] py-[16px] border-b border-[#d2d0d0] first:border-t">
+            <div class="flex flex-col md:w-[160px] flex-shrink-0">
+              <p class="text-body-md font-dm-sans font-medium text-text-heading tracking-[-0.08px]">{slot.time}</p>
+              <p class="text-body-sm font-dm-sans text-text-body-light">{slot.duration}</p>
+            </div>
+            <p class="text-body-md font-dm-sans text-text-body flex-1 leading-[24px]">{slot.session}</p>
+          </div>
+        ))}
+        <p class="text-body-md font-dm-sans italic text-text-body-light mt-[20px]">Tentative schedule, subject to final conference scheduling.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="debate" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-bg-secondary scroll-mt-[72px]">
+    <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
+      <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Debate and panel</h2>
+      <div class="flex flex-col gap-[24px] flex-1 max-w-[800px] text-body-md font-dm-sans text-text-body leading-[26px]">
+        <div class="flex flex-col gap-[8px]">
+          <h3 class="text-h6 font-dm-sans font-medium text-text-heading">Debate question</h3>
+          <p>Can general-purpose AI agents using today's tools, including computer use, solve lifelong memory tasks without further specialized memory algorithms?</p>
         </div>
-        <div class="flex flex-col gap-[12px] py-[20px] border-b border-[#d2d0d0]">
-          <p class="text-body-md font-dm-sans text-text-heading tracking-[-0.08px]"><strong>Panel discussions</strong></p>
+        <div class="flex flex-col gap-[8px]">
+          <h3 class="text-h6 font-dm-sans font-medium text-text-heading">Panel topic</h3>
+          <p>What are the biggest challenges when extending memory from individual tasks to years of experience? What experiment would distinguish competing approaches to each challenge?</p>
         </div>
-        <div class="flex flex-col gap-[12px] py-[20px] border-b border-[#d2d0d0]">
-          <p class="text-body-md font-dm-sans text-text-heading tracking-[-0.08px]"><strong>Poster presentations</strong></p>
+        <p>We will collect audience questions and benchmark proposals before and during the workshop. The closing panel will synthesize a benchmark proposal and identify unresolved disagreements for the post-workshop article.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="papers" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-surface-page scroll-mt-[72px]">
+    <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
+      <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Contributed work</h2>
+      <div class="flex flex-col gap-[20px] flex-1 max-w-[800px] text-body-md font-dm-sans text-text-body leading-[26px]">
+        <p>Alongside full papers, we are establishing a dedicated short-paper track for 3–5 page small, self-contained results, replications, reanalyses, and negative results. This track supports late-breaking work and participation by new, under-represented, or under-resourced authors.</p>
+        <div class="flex flex-col gap-[8px] py-[16px] border-y border-[#d2d0d0]">
+          <div class="flex flex-col md:flex-row md:gap-[32px]">
+            <p class="text-body-md font-dm-sans font-medium text-text-heading md:w-[160px] flex-shrink-0 tracking-[-0.08px]">Submissions due</p>
+            <p>February 1, 2027</p>
+          </div>
+          <div class="flex flex-col md:flex-row md:gap-[32px]">
+            <p class="text-body-md font-dm-sans font-medium text-text-heading md:w-[160px] flex-shrink-0 tracking-[-0.08px]">Notifications</p>
+            <p>February 26, 2027</p>
+          </div>
         </div>
-        <p class="text-body-md font-dm-sans italic text-text-body-light mt-[12px]">Final agenda with talk titles and the archival status of each contribution will be published prior to the workshop.</p>
+        <p>Paper submissions and reviews must be primarily human-authored. The Call for Papers requires authors to attest that submissions are not already published in a peer-reviewed venue. Workshop submissions are non-archival.</p>
       </div>
     </div>
   </section>
@@ -159,15 +241,55 @@ const organizers = [
   <section id="organizers" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-bg-secondary scroll-mt-[72px]">
     <div class="w-full max-w-[1272px] mx-auto">
       <h2 class="text-h3 font-dm-sans text-text-heading mb-[36px]">Organizers</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-[32px] md:gap-[36px] items-start max-w-[800px]">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-[32px] md:gap-[36px] items-start max-w-[1000px]">
         {organizers.map((person) => (
-          <a href={person.link} target="_blank" rel="noopener noreferrer" class="flex flex-col gap-[16px] group">
-            <div class="w-full aspect-square rounded-[12px] overflow-hidden bg-bg-secondary">
-              <img src={person.image} alt={person.name} class="w-full h-full object-cover" />
-            </div>
-            <h3 class="text-h6 font-dm-sans font-medium text-text-heading">{person.name}</h3>
-          </a>
+          <div class="flex flex-col gap-[12px]">
+            {person.link ? (
+              <a href={person.link} target="_blank" rel="noopener noreferrer" class="flex flex-col gap-[12px] group">
+                <div class="w-full aspect-square rounded-[12px] overflow-hidden bg-bg-secondary">
+                  <img src={person.image} alt={person.name} class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-h6 font-dm-sans font-medium text-text-heading">{person.name}</h3>
+              </a>
+            ) : (
+              <>
+                <div class="w-full aspect-square rounded-[12px] overflow-hidden bg-bg-secondary">
+                  <img src={person.image} alt={person.name} class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-h6 font-dm-sans font-medium text-text-heading">{person.name}</h3>
+              </>
+            )}
+            <p class="text-body-md font-dm-sans text-text-body-light tracking-[-0.08px]">{person.affiliation}</p>
+            <a href={`mailto:${person.email}`} class="text-body-md font-dm-sans text-text-body underline">{person.email}</a>
+          </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="related" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-surface-page scroll-mt-[72px]">
+    <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
+      <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">Related workshops</h2>
+      <div class="flex flex-col gap-[20px] flex-1 max-w-[800px] text-body-md font-dm-sans text-text-body leading-[26px]">
+        <ul class="flex flex-col gap-[12px] list-disc pl-[20px]">
+          {relatedWorkshops.map((w) => (
+            <li>{w}</li>
+          ))}
+        </ul>
+        <p class="mt-[12px]">This workshop is distinguished by its focus on human-lifetime-scale memory of terabytes to petabytes of digital data per coherent context and on human memory augmentation. This combination poses distinct questions about memory capacity; encoding, update, and recall costs; personalization, alignment, and learning; proactivity; and human-centric evaluation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="references" class="px-[36px] md:px-[56px] lg:px-[112px] py-[72px] md:py-[96px] bg-bg-secondary scroll-mt-[72px]">
+    <div class="w-full max-w-[1272px] mx-auto flex flex-col lg:flex-row gap-[48px] lg:gap-[104px] items-start">
+      <h2 class="text-h3 font-dm-sans text-text-heading w-full lg:w-[300px] lg:flex-shrink-0">References</h2>
+      <div class="flex flex-col gap-[12px] flex-1 max-w-[800px] text-body-sm font-dm-sans text-text-body leading-[22px]">
+        <ol class="flex flex-col gap-[12px] list-decimal pl-[20px]">
+          {references.map((r) => (
+            <li>{r}</li>
+          ))}
+        </ol>
       </div>
     </div>
   </section>
